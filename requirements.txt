@@ -1,0 +1,9 @@
+Click==7.0
+Flask==1.0.2
+ItsDangerous==1.0.0
+Jinja2==2.10
+MarkupSafe==1.0
+numpy==1.15.2
+Werkzeug==0.14.1
+gunicorn==19.9.0
+virtualenv==16.0.0
