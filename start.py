@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import requests
 import datetime
 import logging
@@ -59,7 +57,7 @@ def main():
             last_chat_id = last_update['message']['chat']['id']
             # last_chat_name = last_update['message']['chat']['first_name']
 
-            greet_bot.send_message(last_chat_id, 'соси{}'.format(last_chat_text))
+            greet_bot.send_message(last_chat_id, 'sosi{}'.format(last_chat_text))
 
             new_offset = last_update_id + 1
 
