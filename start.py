@@ -1,7 +1,9 @@
 import requests
 import datetime
+import logging
 
 
+logger = logging.getLogger(STDOUT)
 token = '695762397:AAGm5DuunnPYmLDeeshF12C0igEOHQFCk9w'
 
 
@@ -43,6 +45,8 @@ def main():
         greet_bot.get_updates(new_offset)
 
         last_update = greet_bot.get_last_update()
+
+        logger.log('a')
 
         if last_update != 0:
             last_update_id = last_update['update_id']
