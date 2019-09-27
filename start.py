@@ -35,7 +35,7 @@ class BotHandler:
 
         return last_update
 
-
+logger.log('bbb')
 def main():
     greet_bot = BotHandler(token)
 
