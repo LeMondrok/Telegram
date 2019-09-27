@@ -1,9 +1,6 @@
 import requests
 import datetime
-import logging
 
-
-logger = logging.getLogger(__name__)
 
 token = '695762397:AAGm5DuunnPYmLDeeshF12C0igEOHQFCk9w'
 
@@ -17,17 +14,13 @@ class BotHandler:
         method = 'getUpdates'
         params = {'timeout': timeout, 'offset': offset}
         resp = requests.get(self.api_url + method, params)
-        print(resp.json())
-        print(self.api_url + method)
         result_json = (resp.json())['result']
-        print(result_json)
         return result_json
 
     def send_message(self, chat_id, text):
         params = {'chat_id': chat_id, 'text': text}
         method = 'sendMessage'
         resp = requests.post(self.api_url + method, params)
-        print(1)
         return resp
 
     def get_last_update(self):
