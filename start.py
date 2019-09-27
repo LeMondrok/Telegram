@@ -1,7 +1,11 @@
 import requests
 import datetime
+import logging
 
-token = '695762397:AAFxbm7TYrgi9eWS30s0vcqIrln7iLirCq4'
+
+logger = logging.getLogger(__name__)
+
+token = '695762397:AAGm5DuunnPYmLDeeshF12C0igEOHQFCk9w'
 
 
 class BotHandler:
@@ -13,6 +17,8 @@ class BotHandler:
         method = 'getUpdates'
         params = {'timeout': timeout, 'offset': offset}
         resp = requests.get(self.api_url + method, params)
+        print(resp.json())
+        print(self.api_url + method)
         result_json = (resp.json())['result']
         print(result_json)
         return result_json
@@ -35,11 +41,9 @@ class BotHandler:
         return last_update
 
 
-greet_bot = BotHandler(token)
-now = datetime.datetime.now()
-
-
 def main():
+    greet_bot = BotHandler(token)
+
     new_offset = None
 
     while True:
@@ -53,7 +57,7 @@ def main():
             last_chat_id = last_update['message']['chat']['id']
             # last_chat_name = last_update['message']['chat']['first_name']
 
-            greet_bot.send_message(last_chat_id, last_chat_text)
+            greet_bot.send_message(last_chat_id, 'соси{}'.format(last_chat_text))
 
             new_offset = last_update_id + 1
 
